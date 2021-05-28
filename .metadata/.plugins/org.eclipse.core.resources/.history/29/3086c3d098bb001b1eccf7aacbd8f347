@@ -1,0 +1,43 @@
+package com.cts.pss.controller;
+
+import java.util.Map;
+
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class Receiver {
+	
+    @Bean
+	public Queue q1() {
+		return new Queue("EmailSend",false);
+	}
+	
+
+	@RabbitListener(queues = {"EmailSend"})
+	public void getBookingInfo(Map<String,Object> xyz) {
+	
+		System.out.println("Name  :-------- >"+xyz.get("Name"));
+		System.out.println("Name : ---------> "+xyz.get("age"
+				+ ""));
+		
+		
+		;
+		
+		
+
+		
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
+		
+		
+
+	}
+
+	
+	
+}
